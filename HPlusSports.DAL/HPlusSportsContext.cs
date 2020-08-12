@@ -16,38 +16,21 @@ namespace HPlusSports.DAL
 
                 entity.HasIndex(e => e.LastName);
 
-                entity.Property(e => e.Address)
-                    .HasColumnName("str_fld_Address")
-                    .HasColumnType("varchar(50)");
+                entity.Property(e => e.Address);
 
-                entity.Property(e => e.City)
-                    .HasColumnName("str_fld_City")
-                    .HasColumnType("varchar(50)");
+                entity.Property(e => e.City);
 
-                entity.Property(e => e.Email)
-                    .HasColumnName("str_fld_Email")
-                    .HasColumnType("varchar(250)")
-                    .HasAnnotation("BackingField", "customerEmail");
+                entity.Property(e => e.Email);
 
-                entity.Property(e => e.FirstName)
-                    .HasColumnName("str_fld_FirstName")
-                    .HasColumnType("varchar(50)");
+                entity.Property(e => e.FirstName);
 
-                entity.Property(e => e.LastName)
-                    .HasColumnName("str_fld_LastName")
-                    .HasColumnType("varchar(50)");
+                entity.Property(e => e.LastName);
 
-                entity.Property(e => e.Phone)
-                    .HasColumnName("str_fld_Phone")
-                    .HasColumnType("varchar(50)");
+                entity.Property(e => e.Phone);
 
-                entity.Property(e => e.State)
-                    .HasColumnName("str_fld_State")
-                    .HasColumnType("varchar(50)");
+                entity.Property(e => e.State);
 
-                entity.Property(e => e.Zipcode)
-                    .HasColumnName("str_fld_Zipcode")
-                    .HasColumnType("varchar(50)");
+                entity.Property(e => e.Zipcode);
 
                 entity.Property(e => e.Deleted);
 
@@ -60,19 +43,16 @@ namespace HPlusSports.DAL
 
                 entity.Property(e => e.Id).HasColumnName("OrderID");
 
-                entity.Property(e => e.CreatedDate)
-                    .HasColumnType("datetime")
-                    .HasDefaultValueSql("getdate()");
+                entity.Property(e => e.CreatedDate);
 
                 entity.Property(e => e.CustomerId).HasColumnName("CustomerID");
 
-                entity.Property(e => e.OrderDate).HasColumnType("datetime");
+                entity.Property(e => e.OrderDate);
 
                 entity.Property(e => e.SalespersonId).HasColumnName("SalespersonID");
 
                 entity.Property(e => e.Status)
                     .IsRequired()
-                    .HasColumnType("varchar(50)")
                     .HasDefaultValueSql("'none'");
 
                 entity.Property(e => e.TotalDue).HasColumnType("money");
