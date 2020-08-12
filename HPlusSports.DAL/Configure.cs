@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Sqlite;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -13,7 +14,8 @@ namespace HPlusSports.DAL
         {
             //Context lifetime defaults to "scoped"
             services
-                 .AddDbContext<HPlusSportsContext>(options => options.UseSqlServer(connectionString));
+                 .AddDbContext<HPlusSportsContext>(options => options.UseSqlServer(connectionString))
+                 .AddDbContext<HPlusSportsSqliteContext>(o => o.UseSqlite("Filename=HPlusSportsSqlite.db"));
 
             services
                 .AddScoped<IOrderRepository, OrderRepository>()
