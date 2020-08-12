@@ -14,7 +14,7 @@ namespace HPlusSports.DAL
         {
             //Context lifetime defaults to "scoped"
             services
-                 .AddDbContext<HPlusSportsContext>(options => options.UseSqlite("Filename=HPlusSportsSqlite.db"));
+                 .AddDbContext<HPlusSportsContext>(options => options.UseSqlite(connectionString));
 
             services
                 .AddScoped<IOrderRepository, OrderRepository>()
