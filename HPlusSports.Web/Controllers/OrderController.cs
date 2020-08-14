@@ -29,9 +29,9 @@ namespace HPlusSports.Web.Controllers
         public async Task<ActionResult> Index()
         {
             var vm = new OrderListViewModel();
-        var orders = await _orderService.GetOrdersWithCustomers();
-        vm.Orders  = orders.Where(o => o.Status != "cancelled");
-      
+            var orders = await _orderService.GetOrdersWithCustomers();
+            vm.Orders = orders.Where(o => o.Status != "cancelled");
+
             return View(vm);
         }
 
