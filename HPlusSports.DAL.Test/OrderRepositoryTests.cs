@@ -13,7 +13,7 @@ namespace HPlusSports.DAL.Test
         [TestMethod]
         public async Task PartialLastNameIsCaseInsensitive()
         {
-            using (var context = Helpers.GetContext("LastNameCaseTest"))
+            using (var context = TestContextProvider.GetContext("LastNameCaseTest"))
             {
                 context.AddRange(new Order[] 
                 {
@@ -27,7 +27,7 @@ namespace HPlusSports.DAL.Test
                 await context.SaveChangesAsync();
             }
 
-            using (var context = Helpers.GetContext("LastNameCaseTest"))
+            using (var context = TestContextProvider.GetContext("LastNameCaseTest"))
             {
                 var repo = new OrderRepository(context);
 

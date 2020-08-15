@@ -12,7 +12,7 @@ namespace HPlusSports.DAL.Test
         [TestMethod]
         public async Task DeletedEntityIsMarkedAndNotRemoved()
         {
-            using (var context = Helpers.GetContext("DeletedEntity"))
+            using (var context = TestContextProvider.GetContext("DeletedEntity"))
             {
                 context.Add(new Salesperson() { Id = 1, Deleted = false });
                 await context.SaveChangesAsync();
@@ -22,7 +22,7 @@ namespace HPlusSports.DAL.Test
                 await repo.SaveChanges();
             }
 
-            using (var context = Helpers.GetContext("DeletedEntity"))
+            using (var context = TestContextProvider.GetContext("DeletedEntity"))
             {
                 var person = context.Find<Salesperson>(1);
                 Assert.IsTrue(person.Deleted, "The person should be marked deleted");
