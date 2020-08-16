@@ -30,7 +30,8 @@ namespace HPlusSports.Web.Controllers
         {
             var vm = new OrderListViewModel();
             var orders = await _orderService.GetOrdersWithCustomers();
-            vm.Orders = orders.Where(o => o.Status != "cancelled");
+            vm.Orders = orders.Where(o => o.Status != "cancelled")
+                .Select(o => new OrderListItemViewModel(orders, o));
 
             return View(vm);
         }
@@ -38,7 +39,8 @@ namespace HPlusSports.Web.Controllers
         public async Task<ActionResult> Customer(int id)
         {
             var vm = new OrderListViewModel();
-            vm.Orders = await _orderService.GetCustomerOrders(id);
+            var orders = await _orderService.GetCustomerOrders(id);
+            vm.Orders = orders.Select(o => new OrderListItemViewModel(orders, o));
             return View("Index", vm);
         }
 
