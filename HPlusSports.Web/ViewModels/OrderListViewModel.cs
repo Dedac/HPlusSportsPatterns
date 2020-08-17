@@ -1,13 +1,9 @@
-﻿using HPlusSports.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace HPlusSports.Web.ViewModels
 {
     public class OrderListViewModel
     {
-        public IList<Order> Orders { get; set; }
+        public IEnumerable<OrderListItemViewModel> Orders { get; set; }
     }
 }
